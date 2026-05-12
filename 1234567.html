@@ -1,0 +1,746 @@
+<!-- ========================= -->
+<!-- index.html 主畫面 -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>生涯規劃助手</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei";
+    background:#f5f5f5;
+}
+
+/* 上方 */
+
+.topbar{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    border-bottom:2px solid #ddd;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:bold;
+}
+
+.home{
+    font-size:28px;
+}
+
+/* 主內容 */
+
+.container{
+    padding:40px;
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.card{
+    background:white;
+    width:220px;
+    border-radius:25px;
+    border:2px solid #ddd;
+    padding:30px 20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    margin-top:50px;
+}
+
+.card p{
+    font-size:20px;
+}
+
+/* 按鈕 */
+
+.btn{
+    margin-top:30px;
+    padding:15px 25px;
+    border:none;
+    border-radius:12px;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.blue{
+    background:#4d8df7;
+}
+
+.green{
+    background:#00b050;
+}
+
+.orange{
+    background:#d89b00;
+}
+
+.purple{
+    background:#7d3cb5;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* 小提醒 */
+
+.notice{
+    margin-top:40px;
+    background:#f5efb9;
+    border:2px solid #99994d;
+    border-radius:15px;
+    padding:20px;
+    font-size:22px;
+}
+
+/* 頁尾 */
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 上方 -->
+
+<div class="topbar">
+
+<div class="logo">
+生涯規劃助手
+</div>
+
+<div class="home">
+🏠 首頁
+</div>
+
+</div>
+
+<!-- 主內容 -->
+
+<div class="container">
+
+<div class="cards">
+
+<!-- 興趣測驗 -->
+
+<div class="card">
+
+<h2 style="color:#4d8df7;">
+興趣測驗
+</h2>
+
+<p>
+了解你的興趣類型
+</p>
+
+<a href="interest.html">
+<button class="btn blue">
+開始測驗
+</button>
+</a>
+
+</div>
+
+<!-- 能力評估 -->
+
+<div class="card">
+
+<h2 style="color:#00b050;">
+能力評估
+</h2>
+
+<p>
+發掘你的能力強項
+</p>
+
+<a href="ability.html">
+<button class="btn green">
+開始評估
+</button>
+</a>
+
+</div>
+
+<!-- 職業探索 -->
+
+<div class="card">
+
+<h2 style="color:#d89b00;">
+職業探索
+</h2>
+
+<p>
+探索適合的職業
+</p>
+
+<button class="btn orange">
+開始探索
+</button>
+
+</div>
+
+<!-- 生涯規劃 -->
+
+<div class="card">
+
+<h2 style="color:#7d3cb5;">
+生涯規劃
+</h2>
+
+<p>
+規劃你的未來方向
+</p>
+
+<button class="btn purple">
+開始規劃
+</button>
+
+</div>
+
+</div>
+
+<!-- 小提醒 -->
+
+<div class="notice">
+
+⭐ 小提醒  
+每個人都有自己的步調，慢慢探索，你會找到屬於自己的方向！
+
+</div>
+
+<!-- 頁尾 -->
+
+<div class="footer">
+© 2024 生涯規劃助手 版權所有
+</div>
+
+</div>
+
+</body>
+</html>
+<!-- ========================= -->
+<!-- interest.html 興趣測驗 -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>興趣測驗</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#f5f5f5;
+    font-family:"Microsoft JhengHei";
+}
+
+/* 上方 */
+
+.topbar{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    border-bottom:2px solid #ddd;
+}
+
+.logo{
+    font-size:35px;
+    font-weight:bold;
+}
+
+.home a{
+    text-decoration:none;
+    color:black;
+    font-size:28px;
+}
+
+/* 主內容 */
+
+.main{
+    padding:40px;
+}
+
+.title{
+    font-size:50px;
+    color:#4d8df7;
+    font-weight:bold;
+}
+
+.sub{
+    margin-top:10px;
+    font-size:24px;
+}
+
+/* 白色區塊 */
+
+.box{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    margin-top:30px;
+}
+
+/* 進度條 */
+
+.progress{
+    height:15px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.progress-bar{
+    width:10%;
+    height:100%;
+    background:#4d8df7;
+}
+
+/* 題目 */
+
+.question{
+    font-size:40px;
+    margin:30px 0;
+}
+
+/* 選項 */
+
+.answers{
+    display:flex;
+    gap:20px;
+}
+
+.answer{
+    flex:1;
+    height:220px;
+    border:2px solid #ddd;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.answer:hover{
+    background:#eaf2ff;
+}
+
+/* 按鈕 */
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:40px;
+}
+
+button{
+    border:none;
+    padding:15px 40px;
+    border-radius:10px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.prev{
+    background:#e7efff;
+    color:#4d8df7;
+}
+
+.next{
+    background:#4d8df7;
+    color:white;
+}
+
+/* 頁尾 */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 上方 -->
+
+<div class="topbar">
+
+<div class="logo">
+生涯規劃助手
+</div>
+
+<div class="home">
+<a href="index.html">🏠 首頁</a>
+</div>
+
+</div>
+
+<!-- 主內容 -->
+
+<div class="main">
+
+<div class="title">
+興趣測驗
+</div>
+
+<div class="sub">
+了解你的興趣類型，發掘適合你的方向！
+</div>
+
+<div class="box">
+
+<div>
+第 1 題 / 共 10 題
+</div>
+
+<!-- 進度條 -->
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<!-- 題目 -->
+
+<div class="question">
+1. 下列哪一項活動你最喜歡？
+</div>
+
+<!-- 選項 -->
+
+<div class="answers">
+
+<div class="answer">
+閱讀書籍或寫作
+</div>
+
+<div class="answer">
+繪畫、設計或創作
+</div>
+
+<div class="answer">
+研究問題或解決難題
+</div>
+
+<div class="answer">
+運動或戶外活動
+</div>
+
+</div>
+
+<!-- 按鈕 -->
+
+<div class="buttons">
+
+<button class="prev">
+← 上一題
+</button>
+
+<button class="next">
+下一題 →
+</button>
+
+</div>
+
+</div>
+
+<!-- 頁尾 -->
+
+<div class="footer">
+© 2024 生涯規劃助手 版權所有
+</div>
+
+</div>
+
+</body>
+</html>
+<!-- ========================= -->
+<!-- ability.html 能力評估 -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>能力評估</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#f5f5f5;
+    font-family:"Microsoft JhengHei";
+}
+
+/* 上方 */
+
+.topbar{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    border-bottom:2px solid #ddd;
+}
+
+.logo{
+    font-size:35px;
+    font-weight:bold;
+}
+
+.home a{
+    text-decoration:none;
+    color:black;
+    font-size:28px;
+}
+
+/* 主內容 */
+
+.main{
+    padding:40px;
+}
+
+.title{
+    font-size:50px;
+    color:#00b050;
+    font-weight:bold;
+}
+
+.sub{
+    margin-top:10px;
+    font-size:24px;
+}
+
+/* 白色區塊 */
+
+.box{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    margin-top:30px;
+}
+
+/* 進度條 */
+
+.progress{
+    height:15px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.progress-bar{
+    width:13%;
+    height:100%;
+    background:#00b050;
+}
+
+/* 題目 */
+
+.question{
+    font-size:40px;
+    margin:30px 0;
+}
+
+/* 選項 */
+
+.answers{
+    display:flex;
+    gap:20px;
+}
+
+.answer{
+    flex:1;
+    height:220px;
+    border:2px solid #ddd;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.answer:hover{
+    background:#e8fff0;
+}
+
+/* 按鈕 */
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:40px;
+}
+
+button{
+    border:none;
+    padding:15px 40px;
+    border-radius:10px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.prev{
+    background:#e7f5eb;
+    color:#00b050;
+}
+
+.next{
+    background:#00b050;
+    color:white;
+}
+
+/* 頁尾 */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 上方 -->
+
+<div class="topbar">
+
+<div class="logo">
+生涯規劃助手
+</div>
+
+<div class="home">
+<a href="index.html">🏠 首頁</a>
+</div>
+
+</div>
+
+<!-- 主內容 -->
+
+<div class="main">
+
+<div class="title">
+能力評估
+</div>
+
+<div class="sub">
+發掘你的能力強項，了解你的優勢！
+</div>
+
+<div class="box">
+
+<div>
+第 1 題 / 共 8 題
+</div>
+
+<!-- 進度條 -->
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<!-- 題目 -->
+
+<div class="question">
+1. 當我遇到問題時，我通常會：
+</div>
+
+<!-- 選項 -->
+
+<div class="answers">
+
+<div class="answer">
+先思考再解決
+</div>
+
+<div class="answer">
+查資料找答案
+</div>
+
+<div class="answer">
+請教他人一起討論
+</div>
+
+<div class="answer">
+直接嘗試去做
+</div>
+
+</div>
+
+<!-- 按鈕 -->
+
+<div class="buttons">
+
+<button class="prev">
+← 上一題
+</button>
+
+<button class="next">
+下一題 →
+</button>
+
+</div>
+
+</div>
+
+<!-- 頁尾 -->
+
+<div class="footer">
+© 2024 生涯規劃助手 版權所有
+</div>
+
+</div>
+
+</body>
+</html>
