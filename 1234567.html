@@ -1,12 +1,7 @@
-<!-- ========================= -->
-<!-- index.html 主畫面 -->
-<!-- ========================= -->
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,49 +11,62 @@
 
 body{
     margin:0;
-    font-family:"Microsoft JhengHei";
-    background:#f5f5f5;
+    font-family:"Microsoft JhengHei",sans-serif;
+    background:#f4f6fb;
 }
 
+/* ========================= */
 /* 上方 */
+/* ========================= */
 
 .topbar{
     background:white;
+    padding:20px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 40px;
     border-bottom:2px solid #ddd;
 }
 
 .logo{
-    font-size:38px;
+    font-size:36px;
     font-weight:bold;
 }
 
 .home{
-    font-size:28px;
+    font-size:24px;
+    cursor:pointer;
 }
 
-/* 主內容 */
+/* ========================= */
+/* 頁面 */
+/* ========================= */
 
-.container{
+.page{
+    display:none;
     padding:40px;
 }
 
+.active{
+    display:block;
+}
+
+/* ========================= */
+/* 首頁 */
+/* ========================= */
+
 .cards{
-    display:flex;
-    justify-content:center;
-    gap:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
 }
 
 .card{
     background:white;
-    width:220px;
     border-radius:25px;
-    border:2px solid #ddd;
-    padding:30px 20px;
+    padding:30px;
     text-align:center;
+    border:2px solid #ddd;
     transition:0.3s;
 }
 
@@ -67,23 +75,25 @@ body{
 }
 
 .card h2{
-    margin-top:50px;
+    font-size:30px;
 }
 
 .card p{
     font-size:20px;
 }
 
+/* ========================= */
 /* 按鈕 */
+/* ========================= */
 
-.btn{
-    margin-top:30px;
-    padding:15px 25px;
+button{
     border:none;
     border-radius:12px;
+    padding:15px 25px;
     color:white;
     font-size:18px;
     cursor:pointer;
+    margin-top:20px;
 }
 
 .blue{
@@ -102,31 +112,144 @@ body{
     background:#7d3cb5;
 }
 
-a{
-    text-decoration:none;
+.gray{
+    background:#888;
 }
 
-/* 小提醒 */
+/* ========================= */
+/* 測驗 */
+/* ========================= */
+
+.title{
+    font-size:45px;
+    font-weight:bold;
+}
+
+.blue-text{
+    color:#4d8df7;
+}
+
+.green-text{
+    color:#00b050;
+}
+
+.sub{
+    margin-top:10px;
+    font-size:22px;
+}
+
+.box{
+    background:white;
+    margin-top:30px;
+    padding:40px;
+    border-radius:20px;
+}
+
+.question{
+    font-size:32px;
+    margin:30px 0;
+    font-weight:bold;
+}
+
+.answers{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.answer{
+    background:white;
+    border:2px solid #ddd;
+    border-radius:20px;
+    min-height:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    font-size:22px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.answer:hover{
+    background:#eef4ff;
+}
+
+.selected{
+    border:3px solid #4d8df7;
+    background:#dfeaff;
+}
+
+.selected-green{
+    border:3px solid #00b050;
+    background:#def7e6;
+}
+
+/* ========================= */
+/* 進度條 */
+/* ========================= */
+
+.progress{
+    width:100%;
+    height:16px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.progress-bar{
+    height:100%;
+    transition:0.3s;
+}
+
+.progress-blue{
+    background:#4d8df7;
+}
+
+.progress-green{
+    background:#00b050;
+}
+
+/* ========================= */
+/* 下方按鈕 */
+/* ========================= */
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:40px;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+/* ========================= */
+/* 結果 */
+/* ========================= */
+
+.result-text{
+    font-size:28px;
+    margin-top:30px;
+    line-height:2;
+}
 
 .notice{
     margin-top:40px;
-    background:#f5efb9;
-    border:2px solid #99994d;
+    background:#fff6bf;
+    border:2px solid #d9c85f;
     border-radius:15px;
     padding:20px;
     font-size:22px;
 }
 
-/* 頁尾 */
-
 .footer{
-    text-align:center;
     margin-top:40px;
+    text-align:center;
     font-size:18px;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -139,19 +262,20 @@ a{
 生涯規劃助手
 </div>
 
-<div class="home">
+<div class="home"
+onclick="showPage('homePage')">
 🏠 首頁
 </div>
 
 </div>
 
-<!-- 主內容 -->
+<!-- ========================= -->
+<!-- 首頁 -->
+<!-- ========================= -->
 
-<div class="container">
+<div id="homePage" class="page active">
 
 <div class="cards">
-
-<!-- 興趣測驗 -->
 
 <div class="card">
 
@@ -160,18 +284,15 @@ a{
 </h2>
 
 <p>
-了解你的興趣類型
+了解你的興趣方向
 </p>
 
-<a href="interest.html">
-<button class="btn blue">
+<button class="blue"
+onclick="startQuiz('interest')">
 開始測驗
 </button>
-</a>
 
 </div>
-
-<!-- 能力評估 -->
 
 <div class="card">
 
@@ -180,18 +301,15 @@ a{
 </h2>
 
 <p>
-發掘你的能力強項
+了解你的能力強項
 </p>
 
-<a href="ability.html">
-<button class="btn green">
+<button class="green"
+onclick="startQuiz('ability')">
 開始評估
 </button>
-</a>
 
 </div>
-
-<!-- 職業探索 -->
 
 <div class="card">
 
@@ -200,16 +318,14 @@ a{
 </h2>
 
 <p>
-探索適合的職業
+探索未來工作方向
 </p>
 
-<button class="btn orange">
+<button class="orange">
 開始探索
 </button>
 
 </div>
-
-<!-- 生涯規劃 -->
 
 <div class="card">
 
@@ -218,10 +334,10 @@ a{
 </h2>
 
 <p>
-規劃你的未來方向
+規劃你的未來目標
 </p>
 
-<button class="btn purple">
+<button class="purple">
 開始規劃
 </button>
 
@@ -229,518 +345,485 @@ a{
 
 </div>
 
-<!-- 小提醒 -->
-
 <div class="notice">
 
-⭐ 小提醒  
-每個人都有自己的步調，慢慢探索，你會找到屬於自己的方向！
+⭐ 小提醒：  
+每個人都有不同的優勢與興趣，慢慢探索，你一定能找到適合自己的方向！
 
 </div>
-
-<!-- 頁尾 -->
 
 <div class="footer">
-© 2024 生涯規劃助手 版權所有
+© 2024 生涯規劃助手
 </div>
 
 </div>
 
-</body>
-</html>
 <!-- ========================= -->
-<!-- interest.html 興趣測驗 -->
+<!-- 興趣測驗 -->
 <!-- ========================= -->
 
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<div id="interestPage" class="page">
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>興趣測驗</title>
-
-<style>
-
-body{
-    margin:0;
-    background:#f5f5f5;
-    font-family:"Microsoft JhengHei";
-}
-
-/* 上方 */
-
-.topbar{
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    border-bottom:2px solid #ddd;
-}
-
-.logo{
-    font-size:35px;
-    font-weight:bold;
-}
-
-.home a{
-    text-decoration:none;
-    color:black;
-    font-size:28px;
-}
-
-/* 主內容 */
-
-.main{
-    padding:40px;
-}
-
-.title{
-    font-size:50px;
-    color:#4d8df7;
-    font-weight:bold;
-}
-
-.sub{
-    margin-top:10px;
-    font-size:24px;
-}
-
-/* 白色區塊 */
-
-.box{
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    margin-top:30px;
-}
-
-/* 進度條 */
-
-.progress{
-    height:15px;
-    background:#eee;
-    border-radius:10px;
-    overflow:hidden;
-    margin:20px 0;
-}
-
-.progress-bar{
-    width:10%;
-    height:100%;
-    background:#4d8df7;
-}
-
-/* 題目 */
-
-.question{
-    font-size:40px;
-    margin:30px 0;
-}
-
-/* 選項 */
-
-.answers{
-    display:flex;
-    gap:20px;
-}
-
-.answer{
-    flex:1;
-    height:220px;
-    border:2px solid #ddd;
-    border-radius:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:24px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.answer:hover{
-    background:#eaf2ff;
-}
-
-/* 按鈕 */
-
-.buttons{
-    display:flex;
-    justify-content:space-between;
-    margin-top:40px;
-}
-
-button{
-    border:none;
-    padding:15px 40px;
-    border-radius:10px;
-    font-size:24px;
-    cursor:pointer;
-}
-
-.prev{
-    background:#e7efff;
-    color:#4d8df7;
-}
-
-.next{
-    background:#4d8df7;
-    color:white;
-}
-
-/* 頁尾 */
-
-.footer{
-    text-align:center;
-    margin-top:30px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<!-- 上方 -->
-
-<div class="topbar">
-
-<div class="logo">
-生涯規劃助手
-</div>
-
-<div class="home">
-<a href="index.html">🏠 首頁</a>
-</div>
-
-</div>
-
-<!-- 主內容 -->
-
-<div class="main">
-
-<div class="title">
+<div class="title blue-text">
 興趣測驗
 </div>
 
 <div class="sub">
-了解你的興趣類型，發掘適合你的方向！
+找出你喜歡的方向
 </div>
 
 <div class="box">
 
-<div>
+<div id="interestCount">
 第 1 題 / 共 10 題
 </div>
 
-<!-- 進度條 -->
-
 <div class="progress">
-<div class="progress-bar"></div>
-</div>
 
-<!-- 題目 -->
-
-<div class="question">
-1. 下列哪一項活動你最喜歡？
-</div>
-
-<!-- 選項 -->
-
-<div class="answers">
-
-<div class="answer">
-閱讀書籍或寫作
-</div>
-
-<div class="answer">
-繪畫、設計或創作
-</div>
-
-<div class="answer">
-研究問題或解決難題
-</div>
-
-<div class="answer">
-運動或戶外活動
+<div id="interestProgress"
+class="progress-bar progress-blue"
+style="width:10%;">
 </div>
 
 </div>
 
-<!-- 按鈕 -->
+<div id="interestQuestion"
+class="question">
+</div>
+
+<div id="interestAnswers"
+class="answers">
+</div>
 
 <div class="buttons">
 
-<button class="prev">
+<button class="gray"
+onclick="goPrev('interest')">
+
 ← 上一題
+
 </button>
 
-<button class="next">
+<button class="blue"
+onclick="goNext('interest')">
+
 下一題 →
+
 </button>
 
 </div>
 
 </div>
 
-<!-- 頁尾 -->
-
-<div class="footer">
-© 2024 生涯規劃助手 版權所有
 </div>
 
-</div>
-
-</body>
-</html>
 <!-- ========================= -->
-<!-- ability.html 能力評估 -->
+<!-- 能力評估 -->
 <!-- ========================= -->
 
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<div id="abilityPage" class="page">
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>能力評估</title>
-
-<style>
-
-body{
-    margin:0;
-    background:#f5f5f5;
-    font-family:"Microsoft JhengHei";
-}
-
-/* 上方 */
-
-.topbar{
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    border-bottom:2px solid #ddd;
-}
-
-.logo{
-    font-size:35px;
-    font-weight:bold;
-}
-
-.home a{
-    text-decoration:none;
-    color:black;
-    font-size:28px;
-}
-
-/* 主內容 */
-
-.main{
-    padding:40px;
-}
-
-.title{
-    font-size:50px;
-    color:#00b050;
-    font-weight:bold;
-}
-
-.sub{
-    margin-top:10px;
-    font-size:24px;
-}
-
-/* 白色區塊 */
-
-.box{
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    margin-top:30px;
-}
-
-/* 進度條 */
-
-.progress{
-    height:15px;
-    background:#eee;
-    border-radius:10px;
-    overflow:hidden;
-    margin:20px 0;
-}
-
-.progress-bar{
-    width:13%;
-    height:100%;
-    background:#00b050;
-}
-
-/* 題目 */
-
-.question{
-    font-size:40px;
-    margin:30px 0;
-}
-
-/* 選項 */
-
-.answers{
-    display:flex;
-    gap:20px;
-}
-
-.answer{
-    flex:1;
-    height:220px;
-    border:2px solid #ddd;
-    border-radius:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:24px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.answer:hover{
-    background:#e8fff0;
-}
-
-/* 按鈕 */
-
-.buttons{
-    display:flex;
-    justify-content:space-between;
-    margin-top:40px;
-}
-
-button{
-    border:none;
-    padding:15px 40px;
-    border-radius:10px;
-    font-size:24px;
-    cursor:pointer;
-}
-
-.prev{
-    background:#e7f5eb;
-    color:#00b050;
-}
-
-.next{
-    background:#00b050;
-    color:white;
-}
-
-/* 頁尾 */
-
-.footer{
-    text-align:center;
-    margin-top:30px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<!-- 上方 -->
-
-<div class="topbar">
-
-<div class="logo">
-生涯規劃助手
-</div>
-
-<div class="home">
-<a href="index.html">🏠 首頁</a>
-</div>
-
-</div>
-
-<!-- 主內容 -->
-
-<div class="main">
-
-<div class="title">
+<div class="title green-text">
 能力評估
 </div>
 
 <div class="sub">
-發掘你的能力強項，了解你的優勢！
+了解你的能力優勢
 </div>
 
 <div class="box">
 
-<div>
+<div id="abilityCount">
 第 1 題 / 共 8 題
 </div>
 
-<!-- 進度條 -->
-
 <div class="progress">
-<div class="progress-bar"></div>
-</div>
 
-<!-- 題目 -->
-
-<div class="question">
-1. 當我遇到問題時，我通常會：
-</div>
-
-<!-- 選項 -->
-
-<div class="answers">
-
-<div class="answer">
-先思考再解決
-</div>
-
-<div class="answer">
-查資料找答案
-</div>
-
-<div class="answer">
-請教他人一起討論
-</div>
-
-<div class="answer">
-直接嘗試去做
+<div id="abilityProgress"
+class="progress-bar progress-green"
+style="width:12%;">
 </div>
 
 </div>
 
-<!-- 按鈕 -->
+<div id="abilityQuestion"
+class="question">
+</div>
+
+<div id="abilityAnswers"
+class="answers">
+</div>
 
 <div class="buttons">
 
-<button class="prev">
+<button class="gray"
+onclick="goPrev('ability')">
+
 ← 上一題
+
 </button>
 
-<button class="next">
+<button class="green"
+onclick="goNext('ability')">
+
 下一題 →
+
 </button>
 
 </div>
 
 </div>
 
-<!-- 頁尾 -->
+</div>
 
-<div class="footer">
-© 2024 生涯規劃助手 版權所有
+<!-- ========================= -->
+<!-- 結果頁 -->
+<!-- ========================= -->
+
+<div id="resultPage" class="page">
+
+<div class="title blue-text">
+測驗結果
+</div>
+
+<div class="box">
+
+<h1 id="resultTitle">
+完成測驗
+</h1>
+
+<div id="resultText"
+class="result-text">
+結果內容
+</div>
+
+<div class="buttons">
+
+<button class="blue"
+onclick="showPage('homePage')">
+
+返回首頁
+
+</button>
+
+<button class="green"
+onclick="restartQuiz()">
+
+重新測驗
+
+</button>
+
 </div>
 
 </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- JavaScript -->
+<!-- ========================= -->
+
+<script>
+
+const quizzes = {
+
+interest:[
+
+{
+q:"1. 下列哪一項活動你最喜歡？",
+a:["閱讀書籍","畫畫創作","解數學題","打球運動"]
+},
+
+{
+q:"2. 你最期待的課程是？",
+a:["國文課","美術課","自然課","體育課"]
+},
+
+{
+q:"3. 假日時你通常會？",
+a:["看小說","做手作","研究新知","出去玩"]
+},
+
+{
+q:"4. 你比較喜歡哪種工作方式？",
+a:["寫文章","設計作品","分析問題","動手實作"]
+},
+
+{
+q:"5. 你看到新事物時會先？",
+a:["閱讀介紹","觀察外觀","了解原理","直接試玩"]
+},
+
+{
+q:"6. 你最有成就感的是？",
+a:["完成作文","完成作品","解出難題","完成挑戰"]
+},
+
+{
+q:"7. 朋友通常會找你幫忙？",
+a:["寫文字","畫圖設計","解決問題","活動安排"]
+},
+
+{
+q:"8. 你最喜歡哪種類型影片？",
+a:["故事分享","藝術創作","科學知識","冒險挑戰"]
+},
+
+{
+q:"9. 你比較想參加哪種社團？",
+a:["文學社","美術社","科學社","籃球社"]
+},
+
+{
+q:"10. 如果未來工作，你希望？",
+a:["表達想法","創造作品","研究發明","四處活動"]
+}
+
+],
+
+ability:[
+
+{
+q:"1. 當遇到困難時，你通常會？",
+a:["冷靜思考","找資料","詢問別人","直接行動"]
+},
+
+{
+q:"2. 你做事情時最重視？",
+a:["細節","創意","效率","速度"]
+},
+
+{
+q:"3. 別人最常稱讚你？",
+a:["細心","有美感","聰明","有活力"]
+},
+
+{
+q:"4. 在團隊中你通常是？",
+a:["規劃者","創作者","分析者","執行者"]
+},
+
+{
+q:"5. 你比較擅長？",
+a:["整理內容","設計圖片","邏輯推理","帶動氣氛"]
+},
+
+{
+q:"6. 面對新挑戰時你會？",
+a:["先規劃","想新方法","分析問題","直接開始"]
+},
+
+{
+q:"7. 你認為自己的優點是？",
+a:["耐心","想像力","判斷力","行動力"]
+},
+
+{
+q:"8. 你最喜歡完成哪種事情？",
+a:["整理報告","設計作品","解決問題","完成任務"]
+}
+
+]
+
+};
+
+let currentQuiz = "";
+let currentIndex = 0;
+
+let selectedAnswers = {
+interest:[],
+ability:[]
+};
+
+function showPage(pageId){
+
+document.querySelectorAll(".page")
+.forEach(page=>{
+page.classList.remove("active");
+});
+
+document.getElementById(pageId)
+.classList.add("active");
+}
+
+function startQuiz(type){
+
+currentQuiz = type;
+currentIndex = 0;
+
+selectedAnswers[type] = [];
+
+renderQuiz();
+
+if(type==="interest"){
+showPage("interestPage");
+}else{
+showPage("abilityPage");
+}
+
+}
+
+function renderQuiz(){
+
+let data = quizzes[currentQuiz];
+
+let questionBox;
+let answerBox;
+let countBox;
+let progressBar;
+
+if(currentQuiz==="interest"){
+
+questionBox =
+document.getElementById("interestQuestion");
+
+answerBox =
+document.getElementById("interestAnswers");
+
+countBox =
+document.getElementById("interestCount");
+
+progressBar =
+document.getElementById("interestProgress");
+
+}else{
+
+questionBox =
+document.getElementById("abilityQuestion");
+
+answerBox =
+document.getElementById("abilityAnswers");
+
+countBox =
+document.getElementById("abilityCount");
+
+progressBar =
+document.getElementById("abilityProgress");
+
+}
+
+questionBox.innerHTML =
+data[currentIndex].q;
+
+countBox.innerHTML =
+"第 " + (currentIndex+1)
++ " 題 / 共 "
++ data.length + " 題";
+
+progressBar.style.width =
+((currentIndex+1)/data.length*100) + "%";
+
+answerBox.innerHTML = "";
+
+data[currentIndex].a.forEach((answer,index)=>{
+
+let btn = document.createElement("div");
+
+btn.className = "answer";
+
+if(selectedAnswers[currentQuiz][currentIndex]===index){
+
+if(currentQuiz==="interest"){
+btn.classList.add("selected");
+}else{
+btn.classList.add("selected-green");
+}
+
+}
+
+btn.innerHTML = answer;
+
+btn.onclick = function(){
+
+selectedAnswers[currentQuiz][currentIndex]
+= index;
+
+renderQuiz();
+
+};
+
+answerBox.appendChild(btn);
+
+});
+
+}
+
+function goNext(type){
+
+if(selectedAnswers[type][currentIndex]==null){
+
+alert("請先選擇答案！");
+return;
+
+}
+
+let data = quizzes[type];
+
+if(currentIndex < data.length-1){
+
+currentIndex++;
+renderQuiz();
+
+}else{
+
+showResult(type);
+
+}
+
+}
+
+function goPrev(type){
+
+if(currentIndex>0){
+
+currentIndex--;
+renderQuiz();
+
+}else{
+
+showPage("homePage");
+
+}
+
+}
+
+function showResult(type){
+
+let resultTitle =
+document.getElementById("resultTitle");
+
+let resultText =
+document.getElementById("resultText");
+
+if(type==="interest"){
+
+resultTitle.innerHTML =
+"🎉 興趣測驗完成";
+
+resultText.innerHTML =
+"你偏向創意與探索型人格，適合設計、美術、創作、自媒體等方向！";
+
+}else{
+
+resultTitle.innerHTML =
+"🎉 能力評估完成";
+
+resultText.innerHTML =
+"你擁有良好的分析與行動能力，適合工程、管理、資訊科技等領域！";
+
+}
+
+showPage("resultPage");
+
+}
+
+function restartQuiz(){
+
+showPage("homePage");
+
+}
+
+</script>
 
 </body>
 </html>
